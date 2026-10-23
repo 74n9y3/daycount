@@ -1,74 +1,76 @@
 # DayCount
 
-一个简洁的 Chrome 扩展，像「倒数日」App 一样记录纪念日、倒数日与重要事件。上班每天都要开浏览器，重要的日子就不会错过。
-
-[Chrome 网上应用店](https://chromewebstore.google.com/detail/glilceccaiicdbjgmelhlbdbiebmnmeh)
+**English** | [中文](README.zh-CN.md)
 
 <div align="center">
-<h3>☕ 请我一杯咖啡</h3>
-<p>项目免费。若它帮你记住过重要日子，欢迎用对应网络的 <strong>USDT</strong> 打赏。<br/>
-<sub>请按下面的网络转入，网络不一致会无法入账。</sub></p>
+<h3>☕ Buy me a coffee</h3>
+<p>This project is free. If it helped you remember a day that matters, a <strong>USDT</strong> tip on the matching network is welcome.<br/>
+<sub>Send on the network below. The wrong chain will not arrive.</sub></p>
 <p>
   <img alt="BSC USDT" src="https://img.shields.io/badge/BSC-USDT%20BEP--20-F3BA2F?style=for-the-badge&logo=binance&logoColor=white" />
   <img alt="Solana USDT" src="https://img.shields.io/badge/Solana-USDT-9945FF?style=for-the-badge&logo=solana&logoColor=white" />
   <img alt="Tron USDT" src="https://img.shields.io/badge/Tron-USDT%20TRC--20-FF060A?style=for-the-badge&logo=tron&logoColor=white" />
 </p>
-</div>
 
-| 网络 | 打赏地址 |
+| Network | Address |
 |:-----|:---------|
 | ![BSC](https://img.shields.io/badge/BSC-F3BA2F?style=flat-square&logo=binance&logoColor=white) **USDT · BEP-20** | `0x6E7359A42C466893E9A835fD6aFdb82E0D1Ed32d` |
 | ![Solana](https://img.shields.io/badge/Solana-9945FF?style=flat-square&logo=solana&logoColor=white) **USDT** | `Hm7f6wGdvcmLmbcXV7sdLYGJKBdwGoFrJTZPzeN8dpan` |
 | ![Tron](https://img.shields.io/badge/Tron-FF060A?style=flat-square&logo=tron&logoColor=white) **USDT · TRC-20** | `TGNrpZBqD8jnfNCb7B9W93qMmVHycoFsKJ` |
+</div>
 
-## 功能
+A small Chrome extension for anniversaries, countdown days, and the dates you do not want to miss. You already open the browser every workday, so the important days stay in sight.
 
-- **自动判断倒数 / 已过**：不需要手动选类型——日期在未来就倒数“还有 N 天”，不循环且日期已过就显示“已经 N 天”（出生、入职、恋爱……）；设置了循环的事件倒数到下一次，并在副标题显示第几次 / 几周年与自起始日已过的天数
-- **灵活循环**：每 N 天 / 周 / 月 / 年（如每 2 周、每 3 个月），农历事件按农历月 / 年推算；2 月 29 日、大小月、闰月等边界自动兜底
-- **多种显示方式**：每个事件可选 天 / 周 + 天 / 月 + 天 / 年 + 月 + 天（如“6 年 6 个月 15 天”），按日历精确拆分
-- **阳历 / 农历**：支持农历生日、农历节日（1900–2100，含闰月），农历事件按每年对应的公历日期自动换算
-- **标签**：纪念日、生活、工作、学习、节日、其他，或自定义标签；列表可按标签筛选
-- **到期提醒**：按「日」提醒，不是会议闹钟。倒数事件可设当天 / 提前 N 天 / 周 / 月；已过事件可设每满 N 天 / 周 / 月 / 年。全部在设置页的每日提醒时间通过系统通知发出，浏览器当时没开也会在下次启动时补发
-- **置顶与角标**：置顶事件显示在顶部大卡片上，并把天数显示在浏览器工具栏图标角标上，每天一眼可见
-- **纯本地存储**：数据只保存在本机 `chrome.storage.local`，不上传任何服务器；支持导出 / 导入 JSON 做备份与迁移
-- **中 / 英文界面**：默认跟随浏览器语言，可在弹窗右上角「中 / EN」一键切换，或在设置页固定为简体中文 / English；通知、角标提示、农历显示（英文下为 `Lunar 8/15`、`Bing-Wu (Horse)`）一并切换
+[Chrome Web Store](https://chromewebstore.google.com/detail/glilceccaiicdbjgmelhlbdbiebmnmeh)
 
-## 安装（开发者模式加载）
+## Features
 
-1. 打开 Chrome，访问 `chrome://extensions/`
-2. 右上角打开「开发者模式」
-3. 点击「加载已解压的扩展程序」，选择本目录 `daycount/`
-4. 建议在工具栏把「倒数日」固定（点拼图图标 → 固定），这样角标天数每天都能看见
+- **Countdown vs count-up is automatic**: no mode to pick. A future date counts down (“N days left”); a past date with no repeat counts up (“N days since”) for birthdays, start dates, anniversaries. Repeating events count down to the next occurrence and show which cycle / which anniversary, plus days since the original date
+- **Flexible repeats**: every N days / weeks / months / years (every 2 weeks, every 3 months, …). Lunar events follow the lunar month / year. Feb 29, short months, and leap months are handled
+- **Display formats**: days; weeks + days; months + days; years + months + days (e.g. “6 years 6 months 15 days”), split on the calendar
+- **Solar / lunar**: lunar birthdays and festivals (1900–2100, including leap months), converted to the matching solar date each year
+- **Tags**: Anniversary, Life, Work, Study, Holiday, Other, or a custom tag; the list can be filtered by tag
+- **Due reminders**: day-based, not a meeting alarm. Countdown events can remind on the day or N days / weeks / months before. Past events can remind every N days / weeks / months / years. Notifications fire at the daily reminder time in Settings; if the browser was closed, they catch up on the next launch
+- **Pin and badge**: one pinned event takes the top card and the toolbar icon badge, so the number is visible every day
+- **Local only**: data stays in `chrome.storage.local` on this device; no server. Export / import JSON for backup and moving machines
+- **Chinese / English UI**: follows the browser by default; switch with **中 / EN** in the popup, or lock it in Settings. Notifications, badge text, and lunar labels switch together (English lunar looks like `Lunar 8/15`, `Bing-Wu (Horse)`)
 
-## 使用
+## Install (unpacked, developer mode)
 
-- 点击工具栏图标打开列表；点「新建」添加事件，点任意事件可编辑 / 删除
-- 点弹窗以外的区域弹窗会自动关闭，这是 Chrome 扩展的标准行为；再点一次图标即可重新打开
-- 点右上角「中 / EN」切换界面语言
-- 点右上角齿轮进入「设置与数据」（会在新标签页打开）：界面语言、每日提醒时间、角标开关、已过天数是否包含当天、导出 / 导入 / 清空数据，以及可选的 USDT 打赏地址
-- 导出文件为 JSON，可用任意文本编辑器查看；导入支持「合并」与「替换」两种模式
+1. Open Chrome at `chrome://extensions/`
+2. Turn on **Developer mode**
+3. Click **Load unpacked** and select this folder
+4. Pin **DayCount** on the toolbar (puzzle icon → pin) so the badge stays visible
 
-## 目录结构
+## Usage
+
+- Click the toolbar icon for the list; **New** adds an event; click any event to edit or delete
+- Clicking outside the popup closes it (Chrome’s normal popup behavior); click the icon again to reopen
+- **中 / EN** in the top-right switches the UI language
+- The gear opens **Settings & backup** in a new tab: language, daily reminder time, badge, whether count-up includes the start day, export / import / clear, and optional USDT tip addresses
+- Export is JSON you can open in any text editor; import can **merge** or **replace**
+
+## Layout
 
 ```
 daycount/
-├── manifest.json        # MV3 清单
-├── background.js        # Service Worker：每日提醒、通知、角标
-├── popup/               # 弹窗：列表 + 新建/编辑
-├── options/             # 设置与数据备份页
+├── manifest.json        # MV3 manifest
+├── background.js        # Service worker: daily reminders, notifications, badge
+├── popup/               # Popup: list + create/edit
+├── options/             # Settings and backup
 ├── src/
-│   ├── lunar.js         # 农历 <-> 阳历换算（1900–2100 数据表）
-│   ├── dates.js         # 日期工具、倒数/已过判定、循环推算、年月日拆分
-│   ├── store.js         # 本地存储、数据模型、导入导出
-│   ├── i18n.js          # 界面文案（zh / en）
-│   └── theme.css        # 共享样式（自动适配深色模式）
-├── _locales/            # 扩展名称与描述的多语言（跟随浏览器语言）
+│   ├── lunar.js         # Lunar ↔ solar (1900–2100 table)
+│   ├── dates.js         # Date helpers, countdown/count-up, repeats, Y/M/D split
+│   ├── store.js         # Local storage, model, import/export
+│   ├── i18n.js          # UI copy (zh / en)
+│   └── theme.css        # Shared styles (dark mode)
+├── _locales/            # Store name and description (follows browser language)
 └── icons/
 ```
 
-## 数据格式
+## Data format
 
-导出文件示例：
+Example export:
 
 ```json
 {
@@ -79,7 +81,7 @@ daycount/
   "events": [
     {
       "id": "…",
-      "title": "入职",
+      "title": "Started the job",
       "calendar": "solar",
       "solar": { "y": 2020, "m": 3, "d": 2 },
       "date": "2020-03-02",
@@ -92,7 +94,7 @@ daycount/
     },
     {
       "id": "…",
-      "title": "妈妈生日",
+      "title": "Mom's birthday",
       "calendar": "lunar",
       "lunar": { "year": 1965, "month": 8, "day": 15, "isLeap": false },
       "repeat": { "unit": "year", "every": 1 },
@@ -106,17 +108,17 @@ daycount/
 }
 ```
 
-- `repeat.unit`：`none` / `day` / `week` / `month` / `year`，`every` 为间隔（每 N 个单位）；旧版字符串 `yearly` / `monthly` 导入时自动转换
-- `display`：`days` / `weeks` / `months` / `years`
-- `remind.before`：倒数事件的提前提醒规则列表，每条 `{ n, unit }`，`unit` 为 `day` / `week` / `month`，`n = 0` 表示当天。`remind.every`：已过事件的“每满 N 单位”规则列表，`unit` 为 `day` / `week` / `month` / `year`。旧版 `days` / `hundreds` 以及时 / 分 / 秒规则导入时自动转换（时分秒会折成「当天」）
-- `calendar`：`solar` 用 `solar`（或 `date` 字符串）；`lunar` 用 `lunar`
-- 旧版的 `type` 字段会被忽略（倒数 / 已过现在由日期与循环自动决定）
-- 导入时会自动校验并跳过无效记录
+- `repeat.unit`: `none` / `day` / `week` / `month` / `year`; `every` is the interval. Legacy strings `yearly` / `monthly` convert on import
+- `display`: `days` / `weeks` / `months` / `years`
+- `remind.before`: countdown rules `{ n, unit }` with `day` / `week` / `month`; `n = 0` is the day itself. `remind.every`: count-up “every N units” with `day` / `week` / `month` / `year`. Legacy `days` / `hundreds` and hour/minute/second rules convert on import (h/m/s become “on the day”)
+- `calendar`: `solar` uses `solar` (or a `date` string); `lunar` uses `lunar`
+- Legacy `type` is ignored (countdown vs count-up is derived from the date and repeat)
+- Invalid records are skipped on import
 
-## 权限说明
+## Permissions
 
-- `storage`：本地保存数据
-- `alarms`：每天在设定时间触发提醒检查
-- `notifications`：发送系统通知
+- `storage`: save data on this device
+- `alarms`: run the daily reminder check
+- `notifications`: system notifications
 
-不申请任何网站访问权限，不联网。
+No site-access permissions. No network.
